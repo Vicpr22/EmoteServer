@@ -7,5 +7,3 @@ export function GET() {
     message: "Welcome to the emoji server",
   });
 }
-
-
