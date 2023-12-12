@@ -11,7 +11,7 @@ export function GET(request, response) {
 export async function POST(request, response) {
   try {
     const { name, character } = await request.json();
-    if (!name && !character) {
+    if (!name || !character) {
       return NextResponse.json({
         success: false,
         error: "You must enter a name and character",
