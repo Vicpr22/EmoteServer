@@ -18,12 +18,11 @@ export function GET(request, response) {
 
 export function DELETE(request, response) {
   const { emojiId } = response.params;
-  const index = emojis.findIndex((emoji) => emojiId === emoji.id);
-  const emoji = emojis.find((emoji) => emojiId === emoji.id);
-  emojis.splice(index);
+  const index = emojis.findIndex((emoji) => +emojiId === emoji.id);
+  const deletedEmoji = emojis.splice(index, 1);
   return NextResponse.json({
-    sucess: true,
-    emoji: emoji,
+    success: true,
+    deletedEmoji,
     message: " deleting successful",
   });
 }
